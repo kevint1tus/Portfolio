@@ -36,7 +36,7 @@ export const MENULINKS = [
   },
   {
     name: "CV",
-    ref: "https://drive.google.com/file/d/1Ip8xc4u7wAvVcED-6LUNUi9O5u8AOggb/view?usp=sharing",
+    ref: "https://drive.google.com/file/d/1Ao8u87KbRupVL_ezZO9PXDjgITznHLRG/view?usp=sharing",
   },
   {
     name: "Contact",
