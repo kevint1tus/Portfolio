@@ -1,6 +1,6 @@
 export const METADATA = {
   author: "Kevin Titus",
-  title: "Kevin Titus",
+  title: "Kevin Titus | Computer Science and Software Engineering Student",
   description:
     "Kevin Titus is a MEng Computer Science student at the University of Birmingham, interested in software development and design.",
   siteUrl: "https://www.titusk.me/",
@@ -9,15 +9,13 @@ export const METADATA = {
     "Kevin Titus",
     "Frontend Developer",
     "Web Developer",
-    "React Native Developer",
     "Software Developer",
     "Software Engineer",
     "Portfolio",
-    "Devfolio",
-    "Folio",
+    "Student",
   ].join(", "),
   image:
-    "https://res.cloudinary.com/dywdhyojt/image/upload/v1690572126/preview.png",
+    "https://res.cloudinary.com/dihjlsqxb/image/upload/v1703196507/Site_jfoasf.png",
   language: "English",
 };
 
