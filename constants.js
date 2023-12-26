@@ -43,11 +43,12 @@ export const MENULINKS = [
 ];
 
 export const TYPED_STRINGS = [
-  "I am a Computer Science and Software Engineering Student",
-  "I am a Violinist at the University of Birmingham Symphony Orchestra",
-  "I am His Majesty's Lord Lieutenant Cadet for South Glamorgan",
-  "I am a Cadet Flight Sergeant at the Royal Air Force Air Cadets",
-  "I am interested in building cool things with code!",
+  "💻 I am a Computer Science and Software Engineering Student",
+  "👾 I am interested in building cool things with code!",
+  "🎻 Violinist at the University of Birmingham Symphony Orchestra",
+  "🎧 Hobbyist music producer, Photographer & Videographer 📷 🎥",
+  "👑 His Majesty's Lord Lieutenant Cadet for South Glamorgan",
+  "✈️ Cadet Flight Sergeant at the Royal Air Force Air Cadets",
 ];
 
 export const SOCIAL_LINKS = [
