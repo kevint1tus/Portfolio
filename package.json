@@ -22,7 +22,8 @@
         "sass": "^1.69.5",
         "typed.js": "^2.1.0",
         "url-loader": "^4.1.1",
-        "vanilla-tilt": "^1.8.1"
+        "vanilla-tilt": "^1.8.1",
+        "xml-loader": "^1.2.1"
     },
     "devDependencies": {
         "autoprefixer": "^10.0.1",
