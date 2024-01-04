@@ -1,2 +1,2 @@
 User-agent: *
-Allow: https://gist.github.com/kevint1tus/3c00a60d8dd5eaf24712ca8bf25cc0f9/raw/sitemap.xml
+Allow: https://gist.githubusercontent.com/kevint1tus/3c00a60d8dd5eaf24712ca8bf25cc0f9/raw/2f7e1401ab074bb234f1a76a621e05338bf29b80/sitemap.xml
