@@ -4,9 +4,9 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "Portfolio | Shubh Porwal",
-  "short_name": "Shubh Porwal",
-  "description": "Shubh Porwal's Portfolio Website.",
+  "name": "Portfolio | Kevin Titus",
+  "short_name": "Kevin Titus",
+  "description": "Kevin Titus' Portfolio Website.",
   "icons": [
     {
       "src": "/icon-192x192.png",
