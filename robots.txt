@@ -1,2 +1,2 @@
 User-agent: *
-Allow: /sitemap.xml
+Allow: /public/sitemap.xml
