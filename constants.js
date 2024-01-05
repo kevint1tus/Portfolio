@@ -92,7 +92,7 @@ export const SOCIAL_LINKS = [
     url: "https://github.com/kevint1tus",
   },
     {
-    name: "external",
+    name: "vsco",
     url: "https://vsco.co/kevin-titus/gallery",
   },
   {
