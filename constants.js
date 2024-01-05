@@ -92,6 +92,10 @@ export const SOCIAL_LINKS = [
     url: "https://github.com/kevint1tus",
   },
   {
+    name: "vsco",
+    url: "https://vsco.co/kevin-titus/gallery",
+  },
+  {
     name: "instagram",
     url: "https://www.instagram.com/kevint1tus/",
   },
@@ -99,6 +103,7 @@ export const SOCIAL_LINKS = [
     name: "twitter",
     url: "https://twitter.com/kevint1tus",
   },
+
 ];
 
 export const SKILLS = {
