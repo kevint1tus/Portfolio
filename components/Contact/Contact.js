@@ -8,7 +8,7 @@ import gsap from "gsap";
 import styles from "./Contact.module.scss";
 
 const filter = new Filter();
-filter.removeWords("hell", "god", "shit");
+filter.removeWords("hell", "god", "shit", "tit");
 
 const empty = () =>
   toast.error("Please fill the required fields", {
