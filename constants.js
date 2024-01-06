@@ -60,12 +60,12 @@ export const MENULINKS = [
     ref: "projects",
   },
   {
-    name: "CV",
-    ref: "https://drive.google.com/file/d/1Ao8u87KbRupVL_ezZO9PXDjgITznHLRG/view?usp=sharing",
-  },
-  {
     name: "Gallery",
     ref: "https://vsco.co/kevin-titus/gallery",
+  },
+  {
+    name: "CV",
+    ref: "https://drive.google.com/file/d/1Ao8u87KbRupVL_ezZO9PXDjgITznHLRG/view?usp=sharing",
   },
   {
     name: "Contact",
