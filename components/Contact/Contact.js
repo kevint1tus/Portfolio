@@ -48,23 +48,23 @@ const Contact = () => {
   const [errorMsg, setErrorMsg] = useState('');
   const buttonEl = useRef(null);
 
+  const isValidName = (name) => {
+    const nameRegex = /^[A-Za-z\s]{2,30}$/;
+    return nameRegex.test(name);
+  };
+  
   const handleChange = ({ target }) => {
     const { id, value } = target;
     value.length === 0 ? setIsSending(false) : setIsSending(true);
   
     setFormData((prevVal) => {
-      if (
-        value.trim() !== prevVal[id] &&
-        value.trim().length > prevVal[id].trim().length
-      ) {
+      if (value.trim() !== prevVal[id] && value.trim().length > prevVal[id].trim().length) {
         let cleanedValue = filter.clean(value.trim());
-  
-        if (id === 'email' && !isValidEmail(cleanedValue)) {
-          // Display an error message to the user
+        if (id === 'name' && !isValidName(cleanedValue)) {
+          setErrorMsg('Invalid name format');
+        } else if (id === 'email' && !isValidEmail(cleanedValue)) {
           setErrorMsg('Invalid email format');
-          // Optionally, you can show an error message to the user
         } else {
-          // Clear the error message if the email is valid
           setErrorMsg('');
         }
   
@@ -74,6 +74,7 @@ const Contact = () => {
       }
     });
   };
+  
   
   const isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
