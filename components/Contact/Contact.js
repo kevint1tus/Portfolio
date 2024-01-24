@@ -250,7 +250,7 @@ const Contact = () => {
   return (
     <section
       className="mt-30 w-full relative select-none bg-gray-dark-4 pt-20 sm:pt-10 md:pt-5 lg:pt-1 pb-20"
-      id={MENULINKS[4].ref}
+      id={MENULINKS[5].ref}
     >
       <div>
         <Toaster />
