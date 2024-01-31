@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import Image from "next/image";
-import Fade from "react-reveal/Fade";
 
 const Header = ({ children }) => {
   const scrollToTop = () => {
@@ -17,7 +16,7 @@ const Header = ({ children }) => {
 
   return (
     <nav className="w-full fixed top-0 py-8 z-50 select-none bg-gradient-to-b from-gray-dark-5 shadow-gray-dark-5 transition-all duration-300">
-      <Fade>
+      <div className="animate__animated animate__fadeIn"></div>
         <div className="flex justify-between section-container">
           <a href="/" className="link" onClick={handleLogoClick}>
             <Image
@@ -42,7 +41,6 @@ const Header = ({ children }) => {
             {children}
           </div>
         </div>
-      </Fade>
     </nav>
   );
 };

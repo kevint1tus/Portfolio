@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useRef, useState } from "react";
-import { Fade } from "react-reveal";
 import { gsap, Linear } from "gsap";
 import { Howl } from "howler";
 import Button from "../Button/Button";
@@ -45,7 +44,7 @@ const Footer = () => {
       ref={targetSection}
     >
       <FooterBg />
-      <Fade bottom distance={"4rem"}>
+      <div className="animate__animated animate__fadeInUp">
         <div className="w-full h-full pt-32">
           <div className="section-container flex flex-col h-full justify-end z-10 items-center py-12">
             <h1 className="font-medium text-3xl md:text-4xl text-center seq">
@@ -74,7 +73,7 @@ const Footer = () => {
             </p>
           </div>
         </div>
-      </Fade>
+      </div>
       <img
         src="/footer-curve.svg"
         className="w-full rotate-180"

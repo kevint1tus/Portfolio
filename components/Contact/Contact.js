@@ -2,7 +2,6 @@ import { useEffect, useState, useRef } from "react";
 import Filter from "bad-words";
 import { MENULINKS } from "../../constants";
 import toast, { Toaster } from "react-hot-toast";
-import Fade from "react-reveal/Fade";
 import mail from "./mailer";
 import gsap from "gsap";
 import styles from "./Contact.module.scss";
@@ -272,7 +271,7 @@ const Contact = () => {
         </div>
 
         <form className="pt-10 sm:mx-auto sm:w-[30rem] md:w-[35rem]">
-          <Fade bottom distance={"4rem"}>
+  <div className="animate__animated animate__fadeInUp">
             <div className="relative">
               <input
                 type="text"
@@ -325,7 +324,7 @@ const Contact = () => {
                 Message
               </label>
             </div>
-          </Fade>
+          </div>
 
           {mailerResponse !== "not initiated" &&
             (mailerResponse === "success" ? (
