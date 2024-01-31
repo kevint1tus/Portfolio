@@ -30,10 +30,18 @@ jobs:
             deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
             publish_dir: ./out
 
-      - name: Send Telegram Notification
-        if: success() 
+      - name: Send Success Notification
+        if: success()
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          args: TitusK.me has been successfully deployed and is live!
+          args: "TitusK.me has been successfully deployed and is live!"
+
+      - name: Send Failure Notification
+        if: failure()
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          args: "Deployment of TitusK.me failed. Please check the build logs."
