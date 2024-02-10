@@ -48,18 +48,18 @@ const About1 = ({ clientHeight }) => {
           clientHeight > 650 ? "pt-28 pb-16" : "pt-80 pb-72"
         } section-container`}
       >
-        <h1
-          ref={quoteRef}
-          className="font-medium text-[2.70rem] md:text-6xl lg:text-[4rem] text-center"
-        >
-         <span className="about-1 leading-tight">
-  First-year CS & Software Engineering student with a passion for tech and problem-solving.  
-</span>
-<span className="about-2 leading-tight">
-  Committed to building a strong foundation and contributing effectively to projects.
-</span>
+     <h1
+  ref={quoteRef}
+  className="font-medium text-[2.70rem] md:text-6xl lg:text-[4rem] text-center"
+>
+  <span className="about-1 leading-tight">
+    First-year CS & Software Engineering student with a passion for tech and problem-solving. {' '}
+  </span>
+  <span className="about-2 leading-tight">
+    Committed to building a strong foundation and contributing effectively to projects.
+  </span>
+</h1>
 
-        </h1>
       </div>
     </section>
   );
