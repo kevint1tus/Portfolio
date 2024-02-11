@@ -112,19 +112,19 @@ export const SOCIAL_LINKS = [
 
 export const SKILLS = {
   languagesAndTools: [
-    "html",
-    "css",
-    "javascript",
-    "java",
-    "figma",
+    "HTML",
+    "CSS",
+    "Javascript",
+    "Java",
+    "Figma",
   ],
   librariesAndFrameworks: [
-    "react",
-    "nextjs",
-    "tailwindcss",
+    "React",
+    "Nextjs",
+    "Tailwindcss",
   ],
-  databases: ["mysql"],
-  other: ["git"],
+  databases: ["MySql", "PostgreSQL"],
+  other: ["Git"],
 };
 
 export const PROJECTS = [
