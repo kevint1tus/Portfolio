@@ -53,7 +53,7 @@ const About1 = ({ clientHeight }) => {
   className="font-medium text-[2.70rem] md:text-6xl lg:text-[4rem] text-center"
 >
   <span className="about-1 leading-tight">
-    First-year CS & Software Engineering student with a passion for tech and problem-solving. {' '}
+    Second-year CS & Software Engineering student with a passion for tech and problem-solving. {' '}
   </span>
   <span className="about-2 leading-tight">
     Committed to building a strong foundation and contributing effectively to projects.
