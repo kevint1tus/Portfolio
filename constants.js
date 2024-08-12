@@ -77,7 +77,7 @@ export const TYPED_STRINGS = [
   "💻 I am a Computer Science and Software Engineering Student",
   "👾 I am interested in building cool things with code!",
   "🎻 Violinist at the University of Birmingham Symphony Orchestra",
-  "🎧 Hobbyist Sound Engineer, Photographer, and Videographer",
+  "🎧 Hobbyist Photographer, Musician and Sound Engineer",
   "👑 His Majesty's Lord Lieutenant Cadet for South Glamorgan",
   "✈️ Cadet Flight Sergeant at the Royal Air Force Air Cadets",
 ];
