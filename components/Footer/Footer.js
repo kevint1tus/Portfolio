@@ -11,11 +11,11 @@ const Footer = () => {
   const [playbackRate, setPlaybackRate] = useState(0.75);
   const targetSection = useRef(null);
 
-  const heartClickSound = new Howl({
-    src: ["/sounds/glug-a.mp3"],
-    rate: playbackRate,
-    volume: 0.5,
-  });
+  // const heartClickSound = new Howl({
+  //   src: ["/sounds/glug-a.mp3"],
+  //   rate: playbackRate,
+  //   volume: 0.5,
+  // });
 
   const handleClick = () => {
     setPlaybackRate((rate) => rate + 0.1);
