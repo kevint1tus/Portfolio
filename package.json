@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
       "dev": "next dev",
-      "build": "next build && next export && mkdir -p out && touch out/.nojekyll",
+      "build": "next build && mkdir -p out && touch out/.nojekyll",
       "start": "next start",
       "lint": "next lint"
     },
