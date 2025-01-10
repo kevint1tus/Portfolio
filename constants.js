@@ -76,7 +76,7 @@ export const MENULINKS = [
 export const TYPED_STRINGS = [
   "💻 I am a Computer Science and Software Engineering Student",
   "👾 I am interested in building cool things with code!",
-  "🎻 Violinist at the University of Birmingham String Orchestra and Philharmonic Orchestra",
+  "🎻 Violinist at the University of Birmingham Philharmonic Orchestra",
   "🎧 Hobbyist Photographer, Musician and Sound Engineer",
   "✈️ Civilian Instructor at the Royal Air Force Air Cadets",
 ];
