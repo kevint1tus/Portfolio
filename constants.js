@@ -61,7 +61,7 @@ export const MENULINKS = [
   },
   {
     name: "Gallery",
-    ref: "https://vsco.co/kevin-titus/gallery",
+    ref: "https://vsco.co/kevint1tus/gallery",
   },
   {
     name: "CV",
@@ -76,10 +76,9 @@ export const MENULINKS = [
 export const TYPED_STRINGS = [
   "💻 I am a Computer Science and Software Engineering Student",
   "👾 I am interested in building cool things with code!",
-  "🎻 Violinist at the University of Birmingham Symphony Orchestra",
+  "🎻 Violinist at the University of Birmingham String Orchestra and Philharmonic Orchestra",
   "🎧 Hobbyist Photographer, Musician and Sound Engineer",
-  "👑 His Majesty's Lord Lieutenant Cadet for South Glamorgan",
-  "✈️ Cadet Flight Sergeant at the Royal Air Force Air Cadets",
+  "✈️ Civilian Instructor at the Royal Air Force Air Cadets",
 ];
 
 export const SOCIAL_LINKS = [
@@ -97,7 +96,7 @@ export const SOCIAL_LINKS = [
   },
     {
     name: "vsco",
-    url: "https://vsco.co/kevin-titus/gallery",
+    url: "https://vsco.co/kevint1tus/gallery",
   },
   {
     name: "instagram",
