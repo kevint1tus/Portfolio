@@ -1,2 +1,6 @@
+# Allow all crawlers
 User-agent: *
-Allow: /public/sitemap.xml
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.titusk.me/sitemap.xml
