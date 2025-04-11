@@ -47,42 +47,38 @@ const Projects = ({ isDesktop, clientHeight }) => {
   const getProjectsSt = useCallback(() => {
     if (!targetSection.current || !sectionTitle.current) return [null, null];
 
-    const innerContainer = targetSection.current.querySelector(".inner-container");
     const projectWrapper = targetSection.current.querySelector(".project-wrapper");
-    
-    if (!innerContainer || !projectWrapper) return [null, null];
+    if (!projectWrapper) return [null, null];
 
     const timeline = gsap.timeline({ defaults: { ease: Linear.easeNone } });
-    const sidePadding = document.body.clientWidth - innerContainer.clientWidth;
-    const elementWidth = sidePadding + projectWrapper.clientWidth;
+    const projectWidth = projectWrapper.querySelector(".project-tile").offsetWidth;
+    const totalWidth = (projectWidth + 120) * (PROJECTS.length - 1) + projectWidth;
+    const scrollDistance = totalWidth - (window.innerWidth * 0.6);
     
-    targetSection.current.style.width = `${elementWidth}px`;
-    const width = window.innerWidth - elementWidth;
-    const duration = `${(elementWidth / window.innerHeight) * 100}%`;
-    
-    timeline
-      .to(targetSection.current, { 
-        x: width,
-        ease: "power1.inOut",
+    timeline.fromTo(projectWrapper,
+      { x: 0 },
+      {
+        x: -scrollDistance,
+        ease: "none",
         duration: 1
-      })
-      .to(sectionTitle.current, { 
-        x: -width,
-        ease: "power1.inOut",
-        duration: 1
-      }, "<");
+      }
+    );
 
     const scrollTrigger = ScrollTrigger.create({
       trigger: targetSection.current,
-      start: "top 95%",
-      end: duration,
-      scrub: 0.1,
+      start: "top top",
+      end: `+=${scrollDistance + (window.innerHeight)}`,
+      scrub: 0.6,
       pin: true,
       animation: timeline,
-      pinSpacing: "margin",
+      pinSpacing: true,
       invalidateOnRefresh: true,
       anticipatePin: 1,
-      fastScrollEnd: true
+      onEnter: () => {
+        if (projectWrapper) {
+          projectWrapper.style.opacity = 1;
+        }
+      }
     });
 
     return [timeline, scrollTrigger];
@@ -102,30 +98,14 @@ const Projects = ({ isDesktop, clientHeight }) => {
     let revealTimeline;
 
     try {
-      if (isDesktop && PROJECTS.length > 2) {
-        [projectsTimeline, projectsScrollTrigger] = getProjectsSt();
-      } else {
-        const projectWrapper = targetSection.current?.querySelector(".project-wrapper");
-        if (projectWrapper) {
-          projectWrapper.style.width = "100%";
-          projectWrapper.style.overflowX = "auto";
-          projectWrapper.style.scrollSnapType = "x mandatory";
-        }
-      }
-
+      [projectsTimeline, projectsScrollTrigger] = getProjectsSt();
       [revealTimeline, revealScrollTrigger] = getRevealSt();
 
-      // Refresh ScrollTrigger on window resize and scroll
       const handleResize = () => {
         ScrollTrigger.refresh();
       };
 
-      const handleScroll = () => {
-        ScrollTrigger.update();
-      };
-
       window.addEventListener('resize', handleResize);
-      window.addEventListener('scroll', handleScroll);
 
       return () => {
         projectsScrollTrigger?.kill();
@@ -133,24 +113,23 @@ const Projects = ({ isDesktop, clientHeight }) => {
         revealScrollTrigger?.kill();
         revealTimeline?.progress(1);
         window.removeEventListener('resize', handleResize);
-        window.removeEventListener('scroll', handleScroll);
       };
     } catch (error) {
       console.error('Error in Projects animation setup:', error);
     }
-  }, [isDesktop, getProjectsSt, getRevealSt, isMounted]);
+  }, [getProjectsSt, getRevealSt, isMounted]);
 
   return (
     <section
       ref={targetSection}
       className={`${
         isDesktop ? "min-h-screen" : "min-h-[50vh]"
-      } w-full relative select-none section-container transform-gpu`}
+      } w-full relative select-none section-container transform-gpu mb-40`}
       id={MENULINKS[2].ref}
     >
       <div className="flex flex-col py-8 justify-center h-full">
         <div
-          className="flex flex-col inner-container transform-gpu"
+          className="flex flex-col inner-container transform-gpu mb-8"
           ref={sectionTitle}
         >
           <p className="uppercase tracking-widest text-gray-light-1 seq">
@@ -164,15 +143,17 @@ const Projects = ({ isDesktop, clientHeight }) => {
           </h2>
         </div>
         <div
-          className={`${
-            clientHeight > 650 ? "mt-12" : "mt-8"
-          } flex project-wrapper w-full seq ${PROJECTS.length <= 2 ? "justify-center" : ""}`}
+          className="flex project-wrapper w-full seq items-center"
+          style={{
+            opacity: 0,
+            minWidth: '100%',
+            paddingLeft: '10%',
+            paddingRight: '30%'
+          }}
         >
           {PROJECTS.map((project, index) => (
             <ProjectTile
-              classes={
-                index === PROJECTS.length - 1 ? "" : "mr-10 xs:mr-12 sm:mr-16"
-              }
+              classes={`project-tile ${index !== PROJECTS.length - 1 ? 'mr-28 md:mr-32 lg:mr-36' : ''}`}
               project={project}
               key={project.name}
               isDesktop={isDesktop}
@@ -181,12 +162,13 @@ const Projects = ({ isDesktop, clientHeight }) => {
         </div>
       </div>
       <style jsx global>{`
-        .project-wrapper::-webkit-scrollbar {
-          display: none;
-        }
         .project-wrapper {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
+          overflow: visible;
+        }
+        .project-tile {
+          flex: 0 0 auto;
+          width: 80%;
+          max-width: 650px;
         }
       `}</style>
     </section>

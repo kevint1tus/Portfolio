@@ -7,53 +7,69 @@ const Collaboration = ({ clientHeight }) => {
   const targetSection = useRef(null);
 
   useEffect(() => {
-    const smallScreen = document.body.clientWidth < 767;
-
     const timeline = gsap.timeline({
       defaults: { ease: Linear.easeNone },
     });
+
+    // Set initial states
+    gsap.set(quoteRef.current, { opacity: 0 });
+    gsap.set(quoteRef.current.querySelector(".text-strong"), { backgroundPositionX: "0%" });
+    gsap.set(targetSection.current.querySelector(".ui-left"), { xPercent: 0 });
+    gsap.set(targetSection.current.querySelector(".ui-right"), { xPercent: 0 });
+
+    // Create main animation timeline
     timeline
-      .to(quoteRef.current, { opacity: 1, duration: 1 })
+      .to(quoteRef.current, { 
+        opacity: 1, 
+        duration: 0.5 
+      })
       .to(quoteRef.current.querySelector(".text-strong"), {
         backgroundPositionX: "100%",
-        duration: 0.8,
-      });
+        duration: 0.5
+      }, ">");
 
+    // Create sliding animations timeline
     const slidingTl = gsap.timeline({ defaults: { ease: Linear.easeNone } });
-
     slidingTl
       .to(targetSection.current.querySelector(".ui-left"), {
         xPercent: -70,
+        duration: 1
       })
-      .to(
-        targetSection.current.querySelector(".ui-right"),
-        { xPercent: -79 },
-        "<"
-      );
+      .to(targetSection.current.querySelector(".ui-right"), {
+        xPercent: -79,
+        duration: 1
+      }, "<");
 
+    // Main scroll trigger
     ScrollTrigger.create({
       trigger: targetSection.current,
-      start: "top 95%",
-      end: "top 40%",
-      scrub: 0.5,
+      start: "top 15%",
+      end: "center center",
+      scrub: 2,
       animation: timeline,
     });
 
+    // Sliding text scroll trigger
     ScrollTrigger.create({
       trigger: targetSection.current,
-      start: "top 95%",
-      end: "top 30%",
-      scrub: 0.5,
+      start: "top 15%",
+      end: "center center",
+      scrub: 2.5,
       animation: slidingTl,
     });
+
+    return () => {
+      timeline.kill();
+      slidingTl.kill();
+    };
   }, []);
 
   return (
-    <section className="w-full relative select-none my-40" ref={targetSection}>
+    <section className="w-full relative select-none my-20" ref={targetSection}>
       <div
         className={`${
-          clientHeight > 650 ? "py-36" : "py-48"
-        } section-container flex flex-col`}
+          clientHeight > 650 ? "py-20" : "py-24"
+        } section-container flex flex-col justify-center min-h-[80vh]`}
       >
         <p className="opacity-40 text-6xl sm:text-7xl font-semibold whitespace-nowrap ui-left transform-gpu">
           {Array(5)
