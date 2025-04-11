@@ -20,8 +20,15 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
   };
 
   useEffect(() => {
-    VanillaTilt.init(projectCard.current, options);
-  }, [projectCard]);
+    if (projectCard.current) {
+      VanillaTilt.init(projectCard.current, options);
+    }
+    return () => {
+      if (projectCard.current?.vanillaTilt) {
+        projectCard.current.vanillaTilt.destroy();
+      }
+    };
+  }, []);
 
   return (
     <a
@@ -31,8 +38,8 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
       target="_blank"
       rel="noreferrer"
       style={{
-        maxWidth: isDesktop ? "calc(100vw - 2rem)" : "calc(100vw - 4rem)",
-        flex: "1 0 auto",
+        maxWidth: isDesktop ? "38rem" : "calc(100vw - 4rem)",
+        flex: "0 0 auto",
         WebkitMaskImage: "-webkit-radial-gradient(white, black)",
       }}
     >
@@ -52,21 +59,23 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
           blurDataURL={blurImage}
           src={image}
           alt={name}
-          layout="fill"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className={`${styles.projectImage} z-0`}
+          style={{ objectFit: 'contain' }}
         />
         <div
           className="absolute top-0 left-0 w-full h-20"
           style={{
             background: `linear-gradient(180deg, ${gradient[0]} 0%, rgba(0,0,0,0) 100%)`,
           }}
-        ></div>
+        />
         <div
           className="absolute bottom-0 left-0 w-full h-32"
           style={{
             background: `linear-gradient(0deg, ${gradient[0]} 10%, rgba(0,0,0,0) 100%)`,
           }}
-        ></div>
+        />
         <h1
           className="font-medium text-3xl sm:text-4xl z-10 pl-2 transform-gpu"
           style={{ transform: "translateZ(3rem)" }}
@@ -79,7 +88,7 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
           `}
         >
           <div className="flex flex-col pb-8">
-            {project.tech.map((el, i) => (
+            {tech.map((el, i) => (
               <img
                 className={`${i % 2 === 0 && "ml-16"} mb-4`}
                 src={`/projects/tech/${el}.svg`}

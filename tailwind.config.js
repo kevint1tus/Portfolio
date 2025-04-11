@@ -1,7 +1,11 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
     mode: "jit",
-    purge: ["./pages/**/*.{js, jsx}", "./components/**/*.{js, jsx}"],
-    darkMode: false, // or 'media' or 'class'
+    content: [
+        "./pages/**/*.{js,ts,jsx,tsx}",
+        "./components/**/*.{js,ts,jsx,tsx}",
+    ],
+    darkMode: 'class',
 
     theme: {
         screens: {
@@ -18,32 +22,29 @@ module.exports = {
 
             white: "#ffffff",
             black: "#000000",
-            purple: "#424350", //Color
+            purple: "#7000FF",
             red: "#cf0000",
             green: "#00ac56",
 
-
             indigo: {
-                light: "#9f55ff",
-                dark: "#9f55ff",
+                light: "#818CF8",
+                dark: "#4F46E5",
             },
             gray: {
                 light: {
-                    1: "#f0f0f0",
-                    2: "#dbdbdb",
-                    3: "#aaaaaa",
-                    4: "#8a8a8a",
+                    1: "#E5E7EB",
+                    2: "#D1D5DB",
+                    3: "#9CA3AF",
                 },
                 dark: {
-                    1: "#323133",
-                    2: "#242225",
-                    3: "#1e1b20",
-                    4: "#1a171e",
-                    5: "#424350", //Need to make this the same as purple
+                    1: "#1F2937",
+                    2: "#111827",
+                    3: "#0F172A",
+                    4: "#0A0F1C",
+                    5: "#070B14",
                 },
             },
         },
-
 
         fontFamily: {
             sans: ["Calibre", "sans-serif"],

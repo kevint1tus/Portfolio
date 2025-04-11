@@ -13,40 +13,40 @@ const Collaboration = ({ clientHeight }) => {
       defaults: { ease: Linear.easeNone },
     });
     timeline
-      .from(quoteRef.current, { opacity: 0, duration: 2 })
+      .to(quoteRef.current, { opacity: 1, duration: 1 })
       .to(quoteRef.current.querySelector(".text-strong"), {
         backgroundPositionX: "100%",
-        duration: 1,
+        duration: 0.8,
       });
 
     const slidingTl = gsap.timeline({ defaults: { ease: Linear.easeNone } });
 
     slidingTl
       .to(targetSection.current.querySelector(".ui-left"), {
-        xPercent: smallScreen ? -500 : -150,
+        xPercent: -70,
       })
-      .from(
+      .to(
         targetSection.current.querySelector(".ui-right"),
-        { xPercent: smallScreen ? -500 : -150 },
+        { xPercent: -79 },
         "<"
       );
 
     ScrollTrigger.create({
       trigger: targetSection.current,
-      start: "center bottom",
-      end: "center center",
-      scrub: 0,
+      start: "top 95%",
+      end: "top 40%",
+      scrub: 0.5,
       animation: timeline,
     });
 
     ScrollTrigger.create({
       trigger: targetSection.current,
-      start: "top bottom",
-      end: "bottom top",
-      scrub: 0,
+      start: "top 95%",
+      end: "top 30%",
+      scrub: 0.5,
       animation: slidingTl,
     });
-  }, [quoteRef, targetSection]);
+  }, []);
 
   return (
     <section className="w-full relative select-none my-40" ref={targetSection}>
@@ -66,6 +66,7 @@ const Collaboration = ({ clientHeight }) => {
         <h1
           ref={quoteRef}
           className="mt-6 md:mt-8 font-medium text-4xl md:text-5xl text-center"
+          style={{ opacity: 0 }}
         >
           Interested in{" "}
           <span className="text-strong font-semibold">Collaboration</span>?

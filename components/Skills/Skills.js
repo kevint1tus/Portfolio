@@ -10,20 +10,20 @@ const Skills = () => {
 
   useEffect(() => {
     const revealTl = gsap.timeline({ defaults: { ease: Linear.easeNone } });
-    revealTl.from(
+    revealTl.to(
       targetSection.current.querySelectorAll(".seq"),
-      { opacity: 0, duration: 0.5, stagger: 0.5 },
+      { opacity: 1, duration: 0.5, stagger: 0.5 },
       "<"
     );
 
     ScrollTrigger.create({
       trigger: targetSection.current.querySelector(".skills-wrapper"),
-      start: "100px bottom",
-      end: `center center`,
+      start: "top bottom",
+      end: "center center",
       animation: revealTl,
-      scrub: 0,
+      scrub: 1,
     });
-  }, [targetSection]);
+  }, []);
 
   return (
     <section
@@ -56,21 +56,15 @@ const Skills = () => {
     <h3 className="uppercase tracking-widest text-gray-light-2 font-medium text-base mb-4 seq">
       LANGUAGES AND TOOLS
     </h3>
-    <div className="grid grid-cols-2 gap-1 seq">
-      {[
-        "VB.NET (Visual Basic)",
-        "C#",
-        "Java",
-        "SQL (MySQL)",
-        "Javascript",
-        "HTML/CSS",
-        "PHP",
-      ].map((skill) => (
+    <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 seq">
+      {SKILLS.languagesAndTools.map((skill) => (
         <div
           key={skill}
-          className="list-none cursor-pointer transition-all transform hover:scale-105 hover:font-bold hover:text-blue-500"
+          className="skill-item list-none relative cursor-pointer py-2 px-4 border border-gray-light-2 rounded-lg transition-all duration-300 transform hover:scale-105 hover:border-indigo-light group"
         >
-          <span className="font-bold text-lg">•</span> {skill}
+          <span className="font-bold text-lg text-indigo-light group-hover:text-white mr-2 transition-colors duration-300">•</span>
+          <span className="text-gray-light-2 group-hover:text-white transition-colors duration-300">{skill}</span>
+          <div className="absolute inset-0 bg-gradient-to-r from-indigo-light to-indigo-dark rounded-lg opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
         </div>
       ))}
     </div>
@@ -79,29 +73,33 @@ const Skills = () => {
     <h3 className="uppercase tracking-widest text-gray-light-2 font-medium text-base mb-4 seq">
       LIBRARIES AND FRAMEWORKS
     </h3>
-    <div className="grid grid-cols-2 gap-0.5 seq">
+    <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 seq">
       {SKILLS.librariesAndFrameworks.map((skill) => (
         <div
           key={skill}
-          className="list-none cursor-pointer transition-all transform hover:scale-105 hover:font-bold hover:text-blue-500"
+          className="skill-item list-none relative cursor-pointer py-2 px-4 border border-gray-light-2 rounded-lg transition-all duration-300 transform hover:scale-105 hover:border-indigo-light group"
         >
-          <span className="font-bold text-lg">•</span> {skill}
+          <span className="font-bold text-lg text-indigo-light group-hover:text-white mr-2 transition-colors duration-300">•</span>
+          <span className="text-gray-light-2 group-hover:text-white transition-colors duration-300">{skill}</span>
+          <div className="absolute inset-0 bg-gradient-to-r from-indigo-light to-indigo-dark rounded-lg opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
         </div>
       ))}
     </div>
   </div>
-  <div className="flex flex-wrap mt-10">
-    <div className="mr-16 xs:mr-20 mb-6">
+  <div className="flex flex-wrap mt-10 gap-16">
+    <div>
       <h3 className="uppercase tracking-widest text-gray-light-2 font-medium text-base mb-4 seq">
         DATABASES
       </h3>
-      <div className="grid grid-cols-2 gap-0.5 seq">
+      <div className="grid md:grid-cols-2 grid-cols-1 gap-4 seq">
         {SKILLS.databases.map((skill) => (
           <div
             key={skill}
-            className="list-none cursor-pointer transition-all transform hover:scale-105 hover:font-bold hover:text-blue-500"
+            className="skill-item list-none relative cursor-pointer py-2 px-4 border border-gray-light-2 rounded-lg transition-all duration-300 transform hover:scale-105 hover:border-indigo-light group"
           >
-            <span className="font-bold text-lg">•</span> {skill}
+            <span className="font-bold text-lg text-indigo-light group-hover:text-white mr-2 transition-colors duration-300">•</span>
+            <span className="text-gray-light-2 group-hover:text-white transition-colors duration-300">{skill}</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-light to-indigo-dark rounded-lg opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
           </div>
         ))}
       </div>
@@ -110,13 +108,15 @@ const Skills = () => {
       <h3 className="uppercase tracking-widest text-gray-light-2 font-medium text-base mb-4 seq">
         Other
       </h3>
-      <div className="grid grid-cols-2 gap-0.5 seq">
+      <div className="grid grid-cols-1 gap-4 seq">
         {SKILLS.other.map((skill) => (
           <div
             key={skill}
-            className="list-none cursor-pointer transition-all transform hover:scale-105 hover:font-bold hover:text-blue-500"
+            className="skill-item list-none relative cursor-pointer py-2 px-4 border border-gray-light-2 rounded-lg transition-all duration-300 transform hover:scale-105 hover:border-indigo-light group"
           >
-            <span className="font-bold text-lg">•</span> {skill}
+            <span className="font-bold text-lg text-indigo-light group-hover:text-white mr-2 transition-colors duration-300">•</span>
+            <span className="text-gray-light-2 group-hover:text-white transition-colors duration-300">{skill}</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-light to-indigo-dark rounded-lg opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
           </div>
         ))}
       </div>

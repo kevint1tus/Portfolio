@@ -7,6 +7,15 @@ import Button from "../Button/Button";
 import Profiles from "../Profiles/Profiles";
 // import lottie from "lottie-web";
 
+const typedOptions = {
+  strings: TYPED_STRINGS,
+  typeSpeed: 50,
+  startDelay: 1500,
+  backSpeed: 50,
+  backDelay: 8000,
+  loop: true,
+};
+
 const Hero = () => {
   const [lottie, setLottie] = useState();
 
@@ -14,29 +23,20 @@ const Hero = () => {
   const targetSection = useRef(null);
   const lottieRef = useRef(null);
 
-  const options = {
-    strings: TYPED_STRINGS,
-    typeSpeed: 50,
-    startDelay: 1500,
-    backSpeed: 50,
-    backDelay: 8000,
-    loop: true,
-  };
-
   useEffect(() => {
-    const typed = new Typed(typedEl.current, options);
+    const typed = new Typed(typedEl.current, typedOptions);
 
     const revealTl = gsap.timeline({ defaults: { ease: Linear.easeNone } });
     revealTl
-      .to(targetSection.current, { opacity: 1, duration: 2 })
-      .from(
+      .to(targetSection.current, { opacity: 1, duration: 1 })
+      .to(
         targetSection.current.querySelectorAll(".seq"),
-        { opacity: 0, duration: 0.5, stagger: 0.5 },
+        { opacity: 1, duration: 0.5, stagger: 0.5 },
         "<"
       );
 
     return () => typed.destroy();
-  }, [typedEl, targetSection]);
+  }, []);
 
   // useEffect(() => {
   //   lottie.loadAnimation({
@@ -93,8 +93,7 @@ const Hero = () => {
         <p>
           <span
             ref={typedEl}
-            className="seq text-3xl text-gray-light-3 font-mono leading-relaxed"
-          ></span>
+            className="seq text-3xl text-gray-light-3 font-mono leading-relaxed" />
         </p>
         <div className="seq">
           <Profiles />
@@ -107,8 +106,7 @@ const Hero = () => {
       </div>
       <div
         className="absolute invisible w-5/12 bottom-1.5 lg:visible lg:right-12 2xl:right-16"
-        ref={lottieRef}
-      ></div>
+        ref={lottieRef} />
     </section>
   );
 };

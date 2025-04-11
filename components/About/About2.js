@@ -8,24 +8,24 @@ const About2 = ({ clientHeight }) => {
 
   useEffect(() => {
     const timeline = gsap.timeline({
-      defaults: { ease: Linear.easeNone, duration: 0.1 },
+      defaults: { ease: Linear.easeNone },
     });
 
     timeline
-      .from(quoteRef.current, { opacity: 0, duration: 2 })
+      .to(quoteRef.current, { opacity: 1, duration: 1 })
       .to(quoteRef.current.querySelector(".about-3"), {
         backgroundPositionX: "100%",
-        duration: 1,
+        duration: 0.8,
       });
 
     ScrollTrigger.create({
       trigger: targetSection.current,
-      start: "center bottom",
-      end: "center center",
-      scrub: 0,
+      start: "top 90%",
+      end: "top 30%",
+      scrub: 1,
       animation: timeline,
     });
-  }, [quoteRef, targetSection]);
+  }, []);
 
   return (
     <section className="w-full relative select-none" ref={targetSection}>
@@ -34,12 +34,13 @@ const About2 = ({ clientHeight }) => {
           clientHeight > 650 ? "py-80" : "py-72"
         } section-container`}
       >
-          <h1
-  ref={quoteRef}
-  className="font-medium text-[2.70rem] md:text-6xl lg:text-[4rem] text-center"
->
-  Harmonizing my <span className="about-3 font-bold">passions</span> for music, code, and everything in between.
-</h1>
+        <h1
+          ref={quoteRef}
+          className="font-medium text-[2.70rem] md:text-6xl lg:text-[4rem] text-center"
+          style={{ opacity: 0 }}
+        >
+          Harmonizing my <span className="about-3 font-bold">passions</span> for music, code, and everything in between.
+        </h1>
       </div>
       <style jsx global>{`
         .about-3 {

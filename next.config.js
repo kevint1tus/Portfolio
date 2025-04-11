@@ -5,15 +5,19 @@ const nextConfig = {
   output: 'export',
   images: {
     unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
   reactStrictMode: true,
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      config.module.rules.push({
-        test: /\.(xml)$/,
-        use: ['xml-loader'],
-      });
-    }
+  swcMinify: true,
+  compiler: {
+    removeConsole: isProd,
+  },
+  webpack: (config) => {
     return config;
   },
 };
