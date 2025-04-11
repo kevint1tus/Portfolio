@@ -2,7 +2,6 @@ import { useEffect, useState, useRef } from "react";
 import Filter from "bad-words";
 import { MENULINKS } from "../../constants";
 import toast, { Toaster } from "react-hot-toast";
-import mail from "./mailer";
 import gsap from "gsap";
 import styles from "./Contact.module.scss";
 
@@ -74,7 +73,6 @@ const Contact = () => {
     });
   };
   
-  
   const isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
@@ -97,9 +95,15 @@ const Contact = () => {
     setIsSending(true);
 
     try {
-      const res = await mail({ name, email, message });
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, message }),
+      });
 
-      if (res.status === 200) {
+      if (response.ok) {
         setMailerResponse("success");
         emptyForm();
       } else {
