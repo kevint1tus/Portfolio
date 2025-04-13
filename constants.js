@@ -136,13 +136,21 @@ export const SKILLS = {
 };
 
 export const PROJECTS = [
-
+  {
+    name: "NoteSpace",
+    image: "/projects/notespace.webp",
+    blurImage: "/projects/blur/notespace.webp",
+    description: "A practice room booking system designed for University Music at the University of Birmingham, built using React, Spring Boot, and PostgreSQL.",
+    gradient: ["#a86423", "#a86423"],
+    url: "https://team14.bham.team",
+    tech: [],
+  },
   {
     name: "485 Squadron Website",
     image: "/projects/485.webp",
     blurImage: "/projects/blur/485.webp",
     description: "A modern website for 485 Squadron RAF Air Cadets with staff content management capabilities, built using Next.js, React and Prisma.",
-    gradient: ["#a86423", "#a86423"],
+    gradient: ["#1F2937", "#111827"],
     url: "https://485-squadron-website.vercel.app/",
     tech: [],
   },
