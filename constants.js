@@ -118,13 +118,12 @@ export const SOCIAL_LINKS = [
 export const SKILLS = {
   languagesAndTools: [
     "VB.NET (Visual Basic)",
-    "C#",
+    "Typescript",
     "Java",
     "SQL (MySQL)",
     "Javascript",
     "HTML/CSS",
     "PHP",
-    "Figma"
   ],
   librariesAndFrameworks: [
     "React",
