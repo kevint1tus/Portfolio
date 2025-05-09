@@ -1,112 +1,69 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import VanillaTilt from "vanilla-tilt";
-import styles from "./ProjectTile.module.scss";
 
-const ProjectTile = ({ project, classes, isDesktop }) => {
+const ProjectTile = ({ project, isDesktop }) => {
   const { name, image, blurImage, description, gradient, url, tech } = project;
   const projectCard = useRef(null);
-  let additionalClasses = "";
-  if (classes) {
-    additionalClasses = classes;
-  }
-
-  const options = {
-    max: 10,
-    speed: 400,
-    glare: true,
-    "max-glare": 0.2,
-    gyroscope: false,
-  };
-
-  useEffect(() => {
-    if (projectCard.current) {
-      VanillaTilt.init(projectCard.current, options);
-    }
-    return () => {
-      if (projectCard.current?.vanillaTilt) {
-        projectCard.current.vanillaTilt.destroy();
-      }
-    };
-  }, []);
 
   return (
     <a
       href={url}
-      className={`overflow-hidden rounded-3xl ${additionalClasses}`}
+      className="group block overflow-hidden rounded-2xl transition-all duration-300 hover:scale-[1.02] bg-gray-dark-4 relative shadow-lg"
       ref={projectCard}
       target="_blank"
       rel="noreferrer"
       style={{
-        maxWidth: isDesktop ? "38rem" : "calc(100vw - 4rem)",
-        flex: "0 0 auto",
-        WebkitMaskImage: "-webkit-radial-gradient(white, black)",
+        background: `linear-gradient(135deg, ${gradient[0]}, ${gradient[1]})`,
       }}
     >
-      <div
-        className={`h-[25rem] w-[38rem] bg-black ${styles.ProjectTile} rounded-3xl relative p-6 flex flex-col justify-between max-w-full`}
-        style={{
-          background: `linear-gradient(90deg, ${gradient[0]} 0%, ${gradient[1]} 100%)`,
-        }}
-      >
-        <img
-          src="/project-bg.svg"
-          alt="project"
-          className="absolute w-full h-full top-0 left-0 object-cover opacity-30"
-        />
-        <Image
-          placeholder="blur"
-          blurDataURL={blurImage}
-          src={image}
-          alt={name}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className={`${styles.projectImage} z-0`}
-          style={{ objectFit: 'contain' }}
-        />
-        <div
-          className="absolute top-0 left-0 w-full h-20"
-          style={{
-            background: `linear-gradient(180deg, ${gradient[0]} 0%, rgba(0,0,0,0) 100%)`,
-          }}
-        />
-        <div
-          className="absolute bottom-0 left-0 w-full h-32"
-          style={{
-            background: `linear-gradient(0deg, ${gradient[0]} 10%, rgba(0,0,0,0) 100%)`,
-          }}
-        />
-        <h1
-          className="font-medium text-3xl sm:text-4xl z-10 pl-2 transform-gpu"
-          style={{ transform: "translateZ(3rem)" }}
-        >
-          {name}
-        </h1>
-        <div
-          className={`
-            ${styles.techIcons} w-1/2 h-full absolute left-24 top-0 sm:flex items-center hidden
-          `}
-        >
-          <div className="flex flex-col pb-8">
-            {tech.map((el, i) => (
-              <img
-                className={`${i % 2 === 0 && "ml-16"} mb-4`}
-                src={`/projects/tech/${el}.svg`}
-                alt={el}
-                height={45}
-                width={45}
-                key={el}
-              />
-            ))}
+      {/* SVG background effect */}
+      <img
+        src="/project-bg.svg"
+        alt="project background"
+        className="absolute w-full h-full top-0 left-0 object-cover opacity-10 pointer-events-none select-none z-0"
+        aria-hidden="true"
+      />
+      <div className="relative z-10 pt-6 px-6 pb-0 flex flex-col items-center">
+        <div className="relative w-full max-w-[95%] rounded-xl overflow-hidden shadow-md" style={{background: 'rgba(0,0,0,0.10)'}}>
+          <div className="relative h-[260px] md:h-[300px] w-full">
+            <Image
+              placeholder="blur"
+              blurDataURL={blurImage}
+              src={image}
+              alt={name}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div 
+              className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            />
           </div>
         </div>
-        <h2
-          className="text-lg z-10 tracking-wide font-medium text-white transform-gpu"
-          style={{ transform: "translateZ(0.8rem)" }}
-        >
-          {description}
-        </h2>
       </div>
+
+      <div className="relative z-10 p-6 pt-4">
+        <h3 className="text-2xl font-semibold mb-3 text-white">
+          {name}
+        </h3>
+        <p className="text-gray-light-2 mb-4 line-clamp-2">
+          {description}
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {tech.map((technology) => (
+            <span
+              key={technology}
+              className="px-3 py-1 text-sm bg-white/10 backdrop-blur-sm rounded-full text-gray-light-2"
+            >
+              {technology}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div 
+        className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-indigo-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 z-20"
+      />
     </a>
   );
 };

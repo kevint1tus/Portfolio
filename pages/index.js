@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import About1 from "@/components/About/About1";
 import About2 from "@/components/About/About2";
-import Collaboration from "@/components/Collaboration/Collabaration";
+import Collaboration from "@/components/Collaboration/Collaboration";
 import Contact from "@/components/Contact/Contact";
 import Cursor from "@/components/Cursor/Cursor";
 import Footer from "@/components/Footer/Footer";

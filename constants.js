@@ -142,7 +142,7 @@ export const PROJECTS = [
     description: "A practice room booking system designed for University Music at the University of Birmingham, built using React, Spring Boot, and PostgreSQL.",
     gradient: ["#a86423", "#a86423"],
     url: "https://team14.bham.team",
-    tech: [],
+    tech: ["React", "Spring Boot", "PostgreSQL", "TypeScript"],
   },
   {
     name: "485 Squadron Website",
@@ -151,9 +151,8 @@ export const PROJECTS = [
     description: "A modern website for 485 Squadron RAF Air Cadets with staff content management capabilities, built using Next.js, React and Prisma.",
     gradient: ["#1F2937", "#111827"],
     url: "https://485-squadron-website.vercel.app/",
-    tech: [],
+    tech: ["Next.js", "React", "Prisma", "TypeScript"],
   },
-
   {
     name: "Team & Project Management System",
     image: "/projects/sourcetech.webp",
@@ -161,7 +160,7 @@ export const PROJECTS = [
     description: "Web-based application developed for Source Tech LTD in partnership with BAE Systems.",
     gradient: ["#375577", "#375577"],
     url: "https://github.com/kevint1tus/Team-and-Project-Management-System",
-    tech: [],
+    tech: ["Java", "Spring Boot", "MySQL", "JavaScript"],
   },
   {
     name: "News Classifier",
@@ -170,8 +169,7 @@ export const PROJECTS = [
     description: "Java-based Natural Language Processing model that classifies news articles into categories.",
     gradient: ["#282C34", "#282C34"],
     url: "https://github.com/kevint1tus/NewsClassifier",
-    tech: [],
+    tech: ["Java", "NLP", "Machine Learning", "Python"],
   },
-  
 ];
 
