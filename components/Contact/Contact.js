@@ -272,6 +272,35 @@ const Contact = () => {
           <h2 className="text-[1.65rem] font-medium md:max-w-lg w-full mt-2 seq">
             Get In Touch.{" "}
           </h2>
+          <div className="w-full flex justify-center">
+            <div className="w-full md:max-w-lg mt-8 mb-6">
+              <div className="pgp-card flex items-start gap-3 border border-blue-400/30 rounded-xl p-5 shadow-2xl backdrop-blur-xl backdrop-saturate-200 bg-white/10 transition-all duration-300 hover:shadow-blue-400/30 hover:border-blue-400/60 hover:scale-[1.025] focus-within:shadow-blue-400/40 focus-within:border-blue-400/80 focus-within:scale-[1.03]">
+                <div className="flex-shrink-0 mt-1 text-blue-400">
+                  {/* Lock icon SVG */}
+                  <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <title>Privacy</title>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 17a2 2 0 100-4 2 2 0 000 4zm6-6V9a6 6 0 10-12 0v2a2 2 0 00-2 2v7a2 2 0 002 2h12a2 2 0 002-2v-7a2 2 0 00-2-2zm-8-2a4 4 0 118 0v2H8V9z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div className="font-semibold text-white text-base mb-1">Want extra privacy?</div>
+                  <div className="text-gray-200 text-sm leading-relaxed">
+                    You can send me encrypted messages using
+                    <a
+                      href="/pgp"
+                      className="link font-semibold underline text-blue-400 hover:text-blue-300 transition-all duration-200 px-1 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer inline-block hover:scale-110 focus:scale-110 hover:underline focus:underline"
+                      style={{textUnderlineOffset: '3px'}}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      PGP
+                    </a>
+                    for secure communication.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <form className="pt-10 sm:mx-auto sm:w-[30rem] md:w-[35rem]">
